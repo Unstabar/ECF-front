@@ -25,28 +25,28 @@ const Filters = ({ onSearch, onLocation, onFulltime }) => {
     };
 
     return (
-        <div className="Filters">
-            <input
-                type="text"
-                placeholder="Search by companies/position"
-                value={searchQuery}
-                onChange={handleSearchQueryChange}
-            />
-            <input
-                type="text"
-                placeholder="Search by location"
-                value={locationQuery}
-                onChange={handleLocationChange}
-            />
-            <label>
-                Full Time Only
+        <div className="filters-container">
+            <div className="filters">
+                <input
+                    type="text"
+                    placeholder="Search by companies/position"
+                    value={searchQuery}
+                    onChange={handleSearchQueryChange}
+                />
+                <input
+                    type="text"
+                    placeholder="Search by location"
+                    value={locationQuery}
+                    onChange={handleLocationChange}
+                />
                 <input
                     type="checkbox"
                     checked={fulltimeOnly}
                     onChange={handleFullTimeChange}
                 />
-            </label>
-            <button onClick={handleSearch}>Search</button>
+                <label>Full Time Only</label>
+                <button onClick={handleSearch}>Search</button>
+            </div>
         </div>
     );
 };

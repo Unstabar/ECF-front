@@ -1,6 +1,6 @@
 .Home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
 }
