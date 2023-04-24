@@ -1,0 +1,44 @@
+.Header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    border-radius: 0px 0px 0px 100px;
+    margin-bottom: 20px;
+}
+
+.switch-container {
+    width: 48px;
+    height: 24px;
+    background-color: #b3b3b3;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+.switch {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+}
+
+.switch.light {
+    left: 0;
+}
+
+.switch.dark {
+    left: 24px;
+    background-color: #000;
+}
+
+.switch-container.dark {
+    background-color: #333;
+}
