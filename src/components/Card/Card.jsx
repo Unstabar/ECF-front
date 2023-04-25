@@ -1,8 +1,6 @@
 import React from "react";
 import "./Card.css";
 
-
-
 const timeAgo = (date) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
     let interval = Math.floor(seconds / 31536000);
@@ -28,20 +26,37 @@ const timeAgo = (date) => {
     return `${Math.floor(seconds)} seconds ago`;
 };
 
-const Card = ({ logo, postedAt, contract, position, company, location, logoBackground }) => {
+const Card = ({
+    logo,
+    postedAt,
+    contract,
+    position,
+    company,
+    location,
+    logoBackground,
+}) => {
     const postedTimeAgo = timeAgo(postedAt);
     const url = logo;
 
     return (
         <div className="Card">
-            <img className="logo" src={url} alt={`${company} logo`} style={{ backgroundColor: `${logoBackground}` }} />
+            <img
+                className="logo"
+                src={url}
+                alt={`${company} logo`}
+                style={{ backgroundColor: `${logoBackground}` }}
+            />
             <div className="Info">
                 <div className="Top">
-                    <p>{postedTimeAgo}</p>
-                    <p>{contract}</p>
+                    <p>
+                        {postedTimeAgo}
+                        <span className="dot"></span>
+                        {contract}
+                    </p>
                 </div>
-                <h2>{position}</h2>
-                <p>{company} - {location}</p>
+                <h3>{position}</h3>
+                <p>{company}</p>
+                <p className="location">{location}</p>
             </div>
         </div>
     );
