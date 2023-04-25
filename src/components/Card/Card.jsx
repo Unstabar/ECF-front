@@ -28,13 +28,13 @@ const timeAgo = (date) => {
     return `${Math.floor(seconds)} seconds ago`;
 };
 
-const Card = ({ logo, postedAt, contract, position, company, location }) => {
+const Card = ({ logo, postedAt, contract, position, company, location, logoBackground }) => {
     const postedTimeAgo = timeAgo(postedAt);
     const url = logo;
 
     return (
         <div className="Card">
-            <img className="logo" src={url} alt={`${company} logo`} />
+            <img className="logo" src={url} alt={`${company} logo`} style={{ backgroundColor: `${logoBackground}` }} />
             <div className="Info">
                 <div className="Top">
                     <p>{postedTimeAgo}</p>

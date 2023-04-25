@@ -6,11 +6,15 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-direction: column;
     overflow: visible;
     padding-inline: 15px;
     margin-inline: 15px;
-
+    z-index: 1;
+    text-align: left;
+    background-color: white;
 }
+
 
 .Card img {
     width: 50px;
@@ -19,7 +23,8 @@
     top: 0;
     left: 0;
     transform: translateX(-25%) translateY(-25%);
-    z-index: -1;
+    border-radius: 50%;
+
 }
 
 

@@ -5,16 +5,17 @@ import Header from "./Header/Header";
 import Filters from "./Filters/Filters";
 
 const Home = () => {
-    const [todos, setTodos] = useState([]);
+    const [cards, setCards] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [locationQuery, setLocationQuery] = useState("");
     const [fulltimeOnly, setFulltimeOnly] = useState(false);
+    const [visibleCards, setVisibleCards] = useState(12);
 
     useEffect(() => {
         fetch("http://localhost:8000/todos")
             .then((response) => response.json())
             .then((data) =>
-                setTodos(
+                setCards(
                     data.sort(
                         (a, b) => new Date(b.postedAt) - new Date(a.postedAt)
                     )
@@ -23,22 +24,26 @@ const Home = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const filteredTodos = todos.filter((todo) => {
+    const filteredCards = cards.filter((card) => {
         const lowerCaseSearchQuery = searchQuery.toLowerCase();
         const lowerCaseLocationQuery = locationQuery.toLowerCase();
-        const hasLocation = todo.location
+        const hasLocation = card.location
             .toLowerCase()
             .includes(lowerCaseLocationQuery);
         const isFulltime =
-            !fulltimeOnly || todo.contract.toLowerCase() === "full-time";
+            !fulltimeOnly || card.contract.toLowerCase() === "full-time";
 
         return (
-            (todo.company.toLowerCase().includes(lowerCaseSearchQuery) ||
-                todo.position.toLowerCase().includes(lowerCaseSearchQuery)) &&
+            (card.company.toLowerCase().includes(lowerCaseSearchQuery) ||
+                card.position.toLowerCase().includes(lowerCaseSearchQuery)) &&
             hasLocation &&
             isFulltime
         );
     });
+
+    const onLoadMoreClick = () => {
+        setVisibleCards(visibleCards + 12);
+    };
 
     return (
         <>
@@ -49,17 +54,25 @@ const Home = () => {
                 onFulltime={(checked) => setFulltimeOnly(checked)}
             />
             <div className="Home">
-                {filteredTodos.map((todo) => (
+                {filteredCards.slice(0, visibleCards).map((card) => (
                     <Card
-                        key={todo._id}
-                        logo={todo.logo}
-                        postedAt={todo.postedAt}
-                        contract={todo.contract}
-                        position={todo.position}
-                        company={todo.company}
-                        location={todo.location}
+                        key={card._id}
+                        logo={card.logo}
+                        postedAt={card.postedAt}
+                        contract={card.contract}
+                        position={card.position}
+                        company={card.company}
+                        location={card.location}
+                        logoBackground={card.logoBackground}
                     />
                 ))}
+                {visibleCards < filteredCards.length && (
+                    <div className="load-more">
+                        <button onClick={onLoadMoreClick}>
+                            Load More
+
+                        </button></div>
+                )}
             </div>
         </>
     );

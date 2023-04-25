@@ -1,6 +1,31 @@
 .Home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
   padding-top: 60px;
+  padding-bottom: 60px;
+  padding-inline: 60px;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  grid-column: 1 / -1;
+}
+
+.load-more button {
+  width: 148px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5964E0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.load-more button:hover {
+  background-color: #939BF4;
 }
