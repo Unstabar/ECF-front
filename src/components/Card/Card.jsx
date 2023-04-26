@@ -34,12 +34,28 @@ const Card = ({
     company,
     location,
     logoBackground,
+    handleDelete,
+    handleEdit,
 }) => {
     const postedTimeAgo = timeAgo(postedAt);
     const url = logo;
 
     return (
         <div className="Card">
+            <button
+                className="delete-btn"
+                title="Delete the card"
+                onClick={handleDelete}
+            >
+                X
+            </button>
+            <button
+                className="edit-btn"
+                title="Edit the card"
+                onClick={handleEdit}
+            >
+                Edit
+            </button>
             <img
                 className="logo"
                 src={url}
@@ -53,6 +69,7 @@ const Card = ({
                         <span className="dot"></span>
                         {contract}
                     </p>
+
                 </div>
                 <h3>{position}</h3>
                 <p>{company}</p>

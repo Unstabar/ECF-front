@@ -40,6 +40,18 @@ const Home = () => {
             isFulltime
         );
     });
+    const handleDelete = (id) => {
+        const shouldDelete = window.confirm("Are you sure you want to delete this card?");
+        if (shouldDelete) {
+            fetch(`http://localhost:8000/delete/${id}`, {
+                method: "DELETE",
+            })
+                .then(() => {
+                    setCards(cards.filter((card) => card._id !== id));
+                })
+                .catch((error) => console.log(error));
+        }
+    };
 
     const onLoadMoreClick = () => {
         setVisibleCards(visibleCards + 12);
@@ -64,6 +76,7 @@ const Home = () => {
                         company={card.company}
                         location={card.location}
                         logoBackground={card.logoBackground}
+                        handleDelete={() => handleDelete(card._id)}
                     />
                 ))}
                 {visibleCards < filteredCards.length && (
