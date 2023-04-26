@@ -1,5 +1,6 @@
 import React from "react";
 import "./Card.css";
+import { Link } from "react-router-dom";
 
 const timeAgo = (date) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -36,6 +37,7 @@ const Card = ({
     logoBackground,
     handleDelete,
     handleEdit,
+    id,
 }) => {
     const postedTimeAgo = timeAgo(postedAt);
     const url = logo;
@@ -71,7 +73,8 @@ const Card = ({
                     </p>
 
                 </div>
-                <h3>{position}</h3>
+                <Link to={`/offers/${id}`}>
+                    <h3>{position}</h3></Link>
                 <p>{company}</p>
                 <p className="location">{location}</p>
             </div>

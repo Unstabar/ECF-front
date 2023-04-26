@@ -66,9 +66,10 @@ const Home = () => {
                 onFulltime={(checked) => setFulltimeOnly(checked)}
             />
             <div className="Home">
-                {filteredCards.slice(0, visibleCards).map((card) => (
+                {filteredCards.slice(0, visibleCards).map((card, index) => (
                     <Card
-                        key={card._id}
+                        key={index}
+                        id={card._id}
                         logo={card.logo}
                         postedAt={card.postedAt}
                         contract={card.contract}
