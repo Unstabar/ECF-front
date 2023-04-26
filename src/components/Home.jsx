@@ -43,7 +43,7 @@ const Home = () => {
     const handleDelete = (id) => {
         const shouldDelete = window.confirm("Are you sure you want to delete this card?");
         if (shouldDelete) {
-            fetch(`http://localhost:8000/delete/${id}`, {
+            fetch(`http://localhost:8000/todos/${id}`, {
                 method: "DELETE",
             })
                 .then(() => {
