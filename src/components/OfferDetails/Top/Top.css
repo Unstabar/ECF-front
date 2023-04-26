@@ -1,0 +1,56 @@
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 730px;
+    height: 140px;
+}
+
+
+.infos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.company-site {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.infos img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.company-website {
+    font-size: 16px;
+    margin: 0;
+}
+
+.company-site-btn {
+    background-color: #eff0fc;
+    color: #5964E0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    width: 147px;
+    height: 48px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.company-site-btn:hover {
+    background-color: #c4c8f4;
+}

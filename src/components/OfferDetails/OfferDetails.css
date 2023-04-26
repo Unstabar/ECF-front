@@ -1,0 +1,12 @@
+.top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 730px;
+    height: 140px;
+    right: 50%;
+    top: 25%;
+    transform: translate(50%, -25%);
+    background-color: white;
+}
