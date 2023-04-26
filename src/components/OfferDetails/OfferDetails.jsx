@@ -3,6 +3,7 @@ import "./OfferDetails.css";
 import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import Top from "./Top/Top";
+import Body from "./Body/Body";
 
 const OfferDetails = () => {
     const { offerid } = useParams();
@@ -18,13 +19,13 @@ const OfferDetails = () => {
             })
             .then((data) => {
                 setOffer(data);
-                console.log(data);
+                // console.log(data);
             })
             .catch((error) => {
                 console.error(error);
             });
     }, [offerid]);
-
+    console.log(offer);
     return (
         <div className="offer-details">
             <Header />
@@ -37,7 +38,15 @@ const OfferDetails = () => {
                 />
             </div>
             <div className="body-container">
-                <h2>Body</h2>
+                <Body
+                    date={offer.postedAt}
+                    contract={offer.contract}
+                    position={offer.position}
+                    location={offer.location}
+                    description={offer.description}
+                    requirements={offer.requirements}
+                    role={offer.role}
+                />
             </div>
         </div>
     );

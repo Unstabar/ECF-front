@@ -99,3 +99,12 @@ p.location {
     color: #5964E0;
     font-weight: bold;
 }
+
+.link-card {
+    text-decoration: none;
+    color: #000;
+}
+
+.link-card:hover {
+    color: #6E8098;
+}

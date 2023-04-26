@@ -1,31 +1,7 @@
 import React from "react";
 import "./Card.css";
+import timeAgo from "../../functions/functions";
 import { Link } from "react-router-dom";
-
-const timeAgo = (date) => {
-    const seconds = Math.floor((new Date() - new Date(date)) / 1000);
-    let interval = Math.floor(seconds / 31536000);
-    if (interval > 1) {
-        return `${interval} years ago`;
-    }
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) {
-        return `${interval} months ago`;
-    }
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-        return `${interval} days ago`;
-    }
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
-        return `${interval} hours ago`;
-    }
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) {
-        return `${interval} minutes ago`;
-    }
-    return `${Math.floor(seconds)} seconds ago`;
-};
 
 const Card = ({
     logo,
@@ -71,10 +47,10 @@ const Card = ({
                         <span className="dot"></span>
                         {contract}
                     </p>
-
                 </div>
-                <Link to={`/offers/${id}`}>
-                    <h3>{position}</h3></Link>
+                <Link className="link-card" to={`/offers/${id}`}>
+                    <h3>{position}</h3>
+                </Link>
                 <p>{company}</p>
                 <p className="location">{location}</p>
             </div>

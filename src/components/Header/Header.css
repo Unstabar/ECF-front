@@ -42,3 +42,8 @@
 .switch-container.dark {
     background-color: #333;
 }
+
+.link {
+    text-decoration: none;
+    color: white;
+}

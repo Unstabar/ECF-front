@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -13,8 +14,9 @@ const Header = () => {
             className={`Header ${isDarkMode ? "dark" : "light"}`}
             style={{ backgroundImage: `url(../Triangle.svg)` }}
         >
-            <h1>devjobs</h1>
-
+            <Link className="link" to={`/`}>
+                <h1>devjobs</h1>
+            </Link>
             <div className="switch-container" onClick={handleToggle}>
                 <div
                     className={`switch ${isDarkMode ? "dark" : "light"}`}
