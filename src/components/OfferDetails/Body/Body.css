@@ -1,5 +1,12 @@
 .body {
     background-color: white;
+    padding: 24px;
+    margin: 10px;
+}
+
+p,
+li {
+    color: #6E8098;
 }
 
 .apply-btn {
@@ -16,4 +23,94 @@
 
 .apply-btn:hover {
     background-color: #939BF4;
+}
+
+.details-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-top p:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.apply-btn {
+    width: 148px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5964E0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    align-self: flex-end;
+}
+
+.apply-btn:hover {
+    background-color: #939BF4;
+}
+
+h4 {
+    color: #000;
+    font-size: 28px;
+}
+
+.loc {
+    color: #5964E0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.time-and-contract {
+    color: #6E8098;
+}
+
+.requirements,
+.roles {
+    margin-top: 48px;
+}
+
+.requirements h3,
+.roles h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.requirements p,
+.roles p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.requirements li,
+.roles li {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.requirements-list {
+    list-style: disc;
+    margin: 10px;
+    padding: 10px;
+}
+
+.roles-list {
+    list-style-type: none;
+    counter-reset: my-counter;
+    margin: 0;
+    padding: 0;
+}
+
+.roles-list li::before {
+    content: counter(my-counter) "";
+    counter-increment: my-counter;
+    display: inline-block;
+    width: 1em;
+    margin-right: 0.5em;
+    text-align: right;
 }

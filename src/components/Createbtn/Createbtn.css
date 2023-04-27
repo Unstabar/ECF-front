@@ -1,0 +1,16 @@
+.create-btn {
+    margin-top: 5rem;
+    width: 148px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5964E0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.create-btn:hover {
+    background-color: #939BF4;
+}

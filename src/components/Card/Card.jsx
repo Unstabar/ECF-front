@@ -27,13 +27,14 @@ const Card = ({
             >
                 X
             </button>
-            <button
-                className="edit-btn"
-                title="Edit the card"
-                onClick={handleEdit}
-            >
-                Edit
-            </button>
+            <Link to={`/update/${id}`}>
+                <button
+                    className="edit-btn"
+                    title="Edit the card"
+                    onClick={handleEdit}
+                >
+                    Edit
+                </button></Link>
             <img
                 className="logo"
                 src={url}

@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import Top from "./Top/Top";
 import Body from "./Body/Body";
+import Footer from "./Footer/Footer";
 
 const OfferDetails = () => {
     const { offerid } = useParams();
     const [offer, setOffer] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/todos/${offerid}`)
+        fetch(`http://localhost:8000/api/todos/${offerid}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch offer data");
@@ -25,7 +26,7 @@ const OfferDetails = () => {
                 console.error(error);
             });
     }, [offerid]);
-    console.log(offer);
+    // console.log(offer);
     return (
         <div className="offer-details">
             <Header />
@@ -48,6 +49,8 @@ const OfferDetails = () => {
                     role={offer.role}
                 />
             </div>
+            <div className="footer-container">
+                <Footer position={offer.position} /></div>
         </div>
     );
 };

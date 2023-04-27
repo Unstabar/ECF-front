@@ -1,0 +1,116 @@
+.form {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 24px;
+    margin-inline: 200px;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    width: auto;
+    text-align: left;
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 200px;
+    width: 500px;
+    resize: none;
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #666;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 2px 2px #5964E0;
+}
+
+.submit-btn {
+    width: 148px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5964E0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 5rem;
+    align-self: center;
+    margin-bottom: 5rem;
+}
+
+.submit-btn:hover {
+    background-color: #939BF4;
+}
+
+/* Style for the "Add Item" button */
+.add-item-btn {
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5964E0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    align-self: center;
+}
+
+.add-item-btn:hover {
+    background-color: #939BF4;
+}
+
+/* Style for the "Remove Item" button */
+.remove-item-btn {
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF5B5B;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.remove-item-btn:hover {
+    background-color: #FF8787;
+}

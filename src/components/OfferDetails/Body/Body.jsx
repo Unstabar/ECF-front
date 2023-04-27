@@ -16,11 +16,12 @@ const Body = ({
     return (
         <div className="body">
             <div className="details-top">
-                <p>{postedTimeAgo}</p>
-                <p>{contract}</p>
-                <p>{position}</p>
-                <p>{location}</p>
-                <button className="apply-btn">Apply Now</button>
+                <div>
+                    <p className="time-and-contract">{postedTimeAgo}<span className="dot"></span>{contract}</p>
+                    <h4>{position}</h4>
+                    <p className="loc">{location}</p></div>
+                <div>
+                    <button className="apply-btn">Apply Now</button></div>
             </div>
 
             <p>{description}</p>
@@ -28,7 +29,7 @@ const Body = ({
             <div className="requirements">
                 <h3>Requirements</h3>
                 <p>{requirements.content}</p>
-                <ul>
+                <ul className="requirements-list">
                     {requirements.items &&
                         requirements.items.map((item, index) => (
                             <li key={index}>{item}</li>
@@ -38,7 +39,7 @@ const Body = ({
             <div className="roles">
                 <h3>What you will do</h3>
                 <p>{role.content}</p>
-                <ul>
+                <ul className="roles-list">
                     {role.items &&
                         role.items.map((item, index) => (
                             <li key={index}>{item}</li>

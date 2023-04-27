@@ -40,6 +40,7 @@ const Filters = ({ onSearch, onLocation, onFulltime }) => {
                     onChange={handleLocationChange}
                 />
                 <input
+                    className="checkbox"
                     type="checkbox"
                     checked={fulltimeOnly}
                     onChange={handleFullTimeChange}

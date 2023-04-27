@@ -3,6 +3,7 @@ import "./Home.css";
 import Card from "./Card/Card";
 import Header from "./Header/Header";
 import Filters from "./Filters/Filters";
+import Createbtn from "./Createbtn/Createbtn";
 
 const Home = () => {
     const [cards, setCards] = useState([]);
@@ -12,7 +13,7 @@ const Home = () => {
     const [visibleCards, setVisibleCards] = useState(12);
 
     useEffect(() => {
-        fetch("http://localhost:8000/todos")
+        fetch("http://localhost:8000/api/todos")
             .then((response) => response.json())
             .then((data) =>
                 setCards(
@@ -43,7 +44,7 @@ const Home = () => {
     const handleDelete = (id) => {
         const shouldDelete = window.confirm("Are you sure you want to delete this card?");
         if (shouldDelete) {
-            fetch(`http://localhost:8000/todos/${id}`, {
+            fetch(`http://localhost:8000/api/todos/${id}`, {
                 method: "DELETE",
             })
                 .then(() => {
@@ -65,6 +66,8 @@ const Home = () => {
                 onLocation={(query) => setLocationQuery(query)}
                 onFulltime={(checked) => setFulltimeOnly(checked)}
             />
+            <div className="create-btn-container">
+                <Createbtn /></div>
             <div className="Home">
                 {filteredCards.slice(0, visibleCards).map((card, index) => (
                     <Card

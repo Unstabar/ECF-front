@@ -10,8 +10,8 @@
     align-items: flex-start;
     flex-direction: column;
     overflow: visible;
-    padding-inline: 15px;
-    margin-inline: 15px;
+    padding: 10px;
+    margin: 10px;
     z-index: 1;
     text-align: left;
     justify-self: center;
@@ -63,8 +63,8 @@
     position: relative;
     top: 0;
     left: 0;
-    transform: translateX(-25%) translateY(-25%);
-    border-radius: 50%;
+    transform: translateX(0%) translateY(-50%);
+    border-radius: 15px;
 }
 
 .Card .Info {
