@@ -88,13 +88,18 @@ const Home = () => {
                         handleDelete={() => handleDelete(card._id)}
                     />
                 ))}
-                {visibleCards < filteredCards.length && (
+                {visibleCards < filteredCards.length ? (
                     <div className="load-more">
                         <button onClick={onLoadMoreClick}>
                             Load More
-
-                        </button></div>
+                        </button>
+                    </div>
+                ) : (
+                    <div className="load-more">
+                        No more cards to load.
+                    </div>
                 )}
+
             </div>
         </>
     );
