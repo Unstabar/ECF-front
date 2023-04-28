@@ -9,6 +9,25 @@ li {
     color: #6E8098;
 }
 
+.edit-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-btn {
+    top: 12px;
+    right: 30px;
+    border: none;
+    background-color: transparent;
+    color: #6E8098;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: #0000ff;
+}
+
 .apply-btn {
     width: 148px;
     height: 40px;

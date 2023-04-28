@@ -15,11 +15,14 @@ const CreationPage = () => {
     const [requirementsItems, setRequirementsItems] = useState([]);
     const [roleContent, setRoleContent] = useState("");
     const [roleItems, setRoleItems] = useState([]);
+    const [numRequirementsItems, setNumRequirementsItems] = useState(1);
+    const [numRoleItems, setNumRoleItems] = useState(1);
 
-    const handleSubmit = (event) => {
+    //Function to handle form submission
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const data = {
+        // creating form data object to send to backend
+        const formData = {
             company,
             logoBackground,
             position,
@@ -38,27 +41,27 @@ const CreationPage = () => {
             },
         };
 
-        fetch("http://localhost:8000/api/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => {
-                if (response.ok) {
-                    console.log(response);
-                    console.log("Success");
-                }
-                return response.json();
-            })
-            .catch((error) => {
-                console.error(error);
+        try {
+            const response = await fetch("http://localhost:8000/api/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
             });
+
+            if (response.ok) {
+                // console.log("Success");
+                alert("Card created successfully!");
+            } else {
+                throw new Error("Network response was not ok.");
+            }
+        } catch (error) {
+            console.error(error.message);
+        }
     };
 
-    const [numRequirementsItems, setNumRequirementsItems] = useState(1);
-    const [numRoleItems, setNumRoleItems] = useState(1);
+
 
     return (
         <>
@@ -157,6 +160,8 @@ const CreationPage = () => {
                     <label htmlFor="requirementsItems">
                         Requirements Items:
                     </label>
+
+                    {/* Loop through the array of requirements items */}
                     {Array.from(
                         { length: numRequirementsItems },
                         (_, index) => (
@@ -216,6 +221,7 @@ const CreationPage = () => {
                     ></textarea>
 
                     <label htmlFor="roleItems">Role Items:</label>
+                    {/* Loop through the array of role items */}
                     {Array.from({ length: numRoleItems }, (_, index) => (
                         <div key={index}>
                             <input

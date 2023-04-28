@@ -12,6 +12,7 @@ const Home = () => {
     const [fulltimeOnly, setFulltimeOnly] = useState(false);
     const [visibleCards, setVisibleCards] = useState(12);
 
+
     useEffect(() => {
         fetch("http://localhost:8000/api/todos")
             .then((response) => response.json())
@@ -25,6 +26,7 @@ const Home = () => {
             .catch((error) => console.log(error));
     }, []);
 
+    //Filtering cards based on search query
     const filteredCards = cards.filter((card) => {
         const lowerCaseSearchQuery = searchQuery.toLowerCase();
         const lowerCaseLocationQuery = locationQuery.toLowerCase();
@@ -41,6 +43,8 @@ const Home = () => {
             isFulltime
         );
     });
+
+    //Deleting cards
     const handleDelete = (id) => {
         const shouldDelete = window.confirm("Are you sure you want to delete this card?");
         if (shouldDelete) {
@@ -54,6 +58,7 @@ const Home = () => {
         }
     };
 
+    //Loading more cards
     const onLoadMoreClick = () => {
         setVisibleCards(visibleCards + 12);
     };

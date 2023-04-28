@@ -12,10 +12,10 @@ const Card = ({
     location,
     logoBackground,
     handleDelete,
-    handleEdit,
     id,
 }) => {
-    const postedTimeAgo = timeAgo(postedAt);
+
+    const postedTimeAgo = timeAgo(postedAt); //Call function to convert date to time ago
     const url = logo;
 
     return (
@@ -27,14 +27,8 @@ const Card = ({
             >
                 X
             </button>
-            <Link to={`/update/${id}`}>
-                <button
-                    className="edit-btn"
-                    title="Edit the card"
-                    onClick={handleEdit}
-                >
-                    Edit
-                </button></Link>
+
+
             <img
                 className="logo"
                 src={url}

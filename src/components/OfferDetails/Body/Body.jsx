@@ -11,15 +11,19 @@ const Body = ({
     requirements = {},
     role = {},
 }) => {
-    const postedTimeAgo = timeAgo(date);
+    const postedTimeAgo = timeAgo(date); //Call function to convert date to time ago
+
     // console.log(requirements.contents);
     return (
         <div className="body">
             <div className="details-top">
                 <div>
                     <p className="time-and-contract">{postedTimeAgo}<span className="dot"></span>{contract}</p>
+
                     <h4>{position}</h4>
-                    <p className="loc">{location}</p></div>
+                    <p className="loc">{location}</p>
+                </div>
+
                 <div>
                     <button className="apply-btn">Apply Now</button></div>
             </div>
@@ -46,6 +50,13 @@ const Body = ({
                         ))}
                 </ul>
             </div>
+            <div className="edit-btn-container">
+                <button
+                    className="edit-btn"
+                    title="Edit the card"
+                >
+                    Edit
+                </button></div>
         </div>
     );
 };
